@@ -11,8 +11,10 @@
     <h1 style="text-align: center;" class=" bg-success">TASK MANAGEMENT</h1>
     <div class="container mt-4">
         <h2>Créer un Ticket</h2>
+         <!-- Bouton pour afficher le formulaire -->
+         <button id="createBtn" class="btn btn-success mb-3">Nouveau ticket</button>
         <!--Formulaire-->
-        <form id="myForm"><!--id pour utiliser les données du formulaire-->
+        <form id="myForm" style="display: none"><!--id pour utiliser les données du formulaire-->
             <div class="mb-3">
                 <label for="nom" class="form-label">Nom :</label>
                 <input type="text" id="nom" name="nom" class="form-control">
@@ -101,6 +103,16 @@
 
         //Récupération des informations du formulaire
         const form = document.getElementById('myForm');
+        const createBtn = document.getElementById('createBtn');
+
+        // Fonction pour afficher/masquer le formulaire
+        createBtn.addEventListener('click', function() {
+            if (form.style.display === "none") {
+                form.style.display = "block";
+            } else {
+                form.style.display = "none";
+            }
+        });
 
         form.addEventListener('submit', function(event) {
             //Empecher la réinitialisation des informations du formulaire quand on appuye sur créer
